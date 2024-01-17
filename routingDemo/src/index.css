@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  color: black;
+  background-color: whitesmoke;
+  width: auto;
+  padding: 5px;
+  border-radius: 15px;
+}
+
+.navbar li button {
+  border: none;
+  outline: none;
+  width: auto;
+  padding: 5px;
+}
