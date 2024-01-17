@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useState } from "react";
+import React, { Suspense, lazy, useContext, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 // import { Dashboard } from './component/Dashboard'
 import { Navbar } from "./component/Navbar";
+import { CountContext } from "./component/Context";
 
 const Dashboard = lazy(() => import("./component/Dashboard"));
 
@@ -44,27 +45,32 @@ function App() {
         </BrowserRouter>
 
         <div>
-          <Count count={count} setCount={setCount} />
+          <CountContext.Provider value={{ count, setCount }}>
+            <Count />
+          </CountContext.Provider>
         </div>
       </div>
     </>
   );
 }
 
-function Count({ count, setCount }) {
+function Count() {
   return (
     <div>
-      <CountRendrer count={count} />
-      <Button count={count} setCount={setCount} />
+      <CountRendrer />
+      <Button />
     </div>
   );
 }
 
-function CountRendrer({ count }) {
+function CountRendrer() {
+  const { count } = useContext(CountContext);
+
   return <div>{count}</div>;
 }
 
-function Button({ count, setCount }) {
+function Button() {
+  const { count, setCount } = useContext(CountContext);
   return (
     <div>
       <button
