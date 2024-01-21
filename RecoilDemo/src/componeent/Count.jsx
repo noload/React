@@ -7,6 +7,7 @@ const Count = () => {
   return (
     <div>
       <RecoilRoot>
+        {console.log("rerendering")}
         <Button />
         <CountRendrer />
       </RecoilRoot>

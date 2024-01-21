@@ -1,11 +1,14 @@
+import { RecoilRoot } from "recoil";
 import "./App.css";
-import { Button } from "./componeent/Button";
-import Count from "./componeent/Count";
+
+import Navbar from "./componeent/Navbar";
 
 function App() {
   return (
     <>
-      <Count/>
+      <RecoilRoot>
+        <Navbar />
+      </RecoilRoot>
     </>
   );
 }
